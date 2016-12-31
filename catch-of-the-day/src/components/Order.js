@@ -8,6 +8,7 @@ class Order extends React.Component {
   }
   renderOrder(key) {
    const fish = this.props.fishes[key];
+   const fish = this.props.fishes[key];
    const count = this.props.order[key];
    const removeButton = <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
    if(!fish || fish.status === 'unavailable') {
@@ -61,5 +62,11 @@ class Order extends React.Component {
     )
   }
 }
+
+Order.propTypes = {
+  fishes: React.PropTypes.object.isRequired,
+  order: React.PropTypes.object.isRequired,
+  removeFromOrder: React.PropTypes.func.isRequired
+};
 
 export default Order;
